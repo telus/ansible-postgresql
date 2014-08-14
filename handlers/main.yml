@@ -1,0 +1,12 @@
+---
+- name: Reload Service | monit
+  command: monit reload
+  tags:
+    - monit
+
+- name: Reload Service | postgres
+  monit:
+    state: restarted
+    name: postgres
+  tags:
+    - monit

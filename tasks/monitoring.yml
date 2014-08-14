@@ -1,0 +1,18 @@
+---
+- name: Upload Config | monit | postgres
+  template:
+    src: etc/monit/conf.d/postgres
+    dest: /etc/monit/conf.d/postgres
+  notify: Reload Service | monit
+  tags:
+    - monit
+
+- name: Trigger All Callbacks
+  meta: flush_handlers
+
+- name: Confirm Monitoring | postgres
+  monit:
+    state: present
+    name: postgres
+  tags:
+    - monit

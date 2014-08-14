@@ -1,0 +1,3 @@
+---
+- include: packages.yml
+- { include: monitoring.yml, when: postgres_server }
