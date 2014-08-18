@@ -4,5 +4,5 @@ postgres_server: no
 
 postgres_user: postgres
 
-postgres_runtime_data_root: /var/run/postgres
-postgres_pidfile_path: "{{ postgres_runtime_data_root }}/postgres.pid"
+postgres_runtime_root: "{{ runtime_root }}/postgres"
+postgres_pidfile_path: "{{ postgres_runtime_root }}/postgres.pid"
