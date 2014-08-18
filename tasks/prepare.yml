@@ -1,0 +1,13 @@
+---
+- name: "Directory Exists | {{ postgres_runtime_data_root }}"
+  file:
+    state: directory
+    path: "{{ postgres_runtime_data_root }}"
+    owner: "{{ postgres_user }}"
+    group: wcadmin
+    mode: 0775
+  tags:
+    - directory-structure
+    - runtime-data
+    - postgres
+  when: postgres_server
