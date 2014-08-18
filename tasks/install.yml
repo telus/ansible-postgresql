@@ -20,3 +20,5 @@
     state: stopped
     name: postgres
   when: postgres_server
+  tags:
+    - disruptive
