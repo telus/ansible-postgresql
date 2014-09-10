@@ -15,6 +15,14 @@
     - postgresql
   when: postgres_server
 
+- name: Create Database User
+  postgresql_user:
+    state: present
+    name: "{{ database.username | default(project) }}"
+    password: "{{ database.password | mandatory }}"
+    role_attr_flags: CREATEDB
+  when: postgres_server
+
 - name: Service Stopped | postgres
   service:
     state: stopped
