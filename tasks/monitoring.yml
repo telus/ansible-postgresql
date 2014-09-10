@@ -25,7 +25,7 @@
 - name: Configure | postgres | pidfile
   lineinfile:
     state: present
-    dest: /etc/postgresql/9.3/postgresql.conf
+    dest: /etc/postgresql/9.3/main/postgresql.conf
     regexp: '^#*external_pid_file'
     line: "external_pid_file = '{{ postgres_pidfile_path }}'"
   notify: Reload Service | postgres
