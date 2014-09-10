@@ -33,6 +33,7 @@
     password: "{{ database.password | mandatory }}"
     role_attr_flags: CREATEDB
   when: postgres_server
+  sudo_user: postgres
 
 - name: Service Stopped | postgres
   service:
