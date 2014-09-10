@@ -15,6 +15,7 @@
     - postgresql
     - postgresql-server-dev-all
     - python-pip
+    - python-dev
   when: postgres_server
 
 - name: Install Packages | pip
