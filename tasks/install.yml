@@ -13,7 +13,17 @@
     pkg: "{{ item }}"
   with_items:
     - postgresql
+    - python-pip
   when: postgres_server
+
+- name: Install Packages | pip
+  pip:
+    state: latest
+    name: "{{ item }}"
+  with_items:
+    - psycopg2
+  when: postgres_server
+
 
 - name: Create Database User
   postgresql_user:
