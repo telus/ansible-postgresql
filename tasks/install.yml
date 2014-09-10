@@ -18,7 +18,7 @@
 - name: Service Stopped | postgres
   service:
     state: stopped
-    name: postgres
+    name: postgresql
   when: postgres_server
   tags:
     - disruptive
