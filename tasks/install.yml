@@ -13,6 +13,7 @@
     pkg: "{{ item }}"
   with_items:
     - postgresql
+    - postgresql-server-dev-all
     - python-pip
   when: postgres_server
 
