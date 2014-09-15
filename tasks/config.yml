@@ -1,0 +1,11 @@
+---
+- name: Configure | postgres | listen_address
+  lineinfile:
+    state: present
+    dest: /etc/postgresql/9.3/main/postgresql.conf
+    regexp: '^#* *listen_addresses ='
+    line: "listen_addresses = '*'"
+  notify: Reload Service | postgres
+  tags:
+    - networking
+  when: postgres_accepts_external_connections
