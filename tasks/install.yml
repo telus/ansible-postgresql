@@ -26,7 +26,6 @@
     - psycopg2
   when: postgres_server
 
-
 - name: Create Database User
   postgresql_user:
     state: present
