@@ -29,8 +29,8 @@
 - name: Create Database User
   postgresql_user:
     state: present
-    name: "{{ database.username | default(project) }}"
-    password: "{{ database.password | mandatory }}"
+    name: "{{ database_username | default(project) }}"
+    password: "{{ database_password | mandatory }}"
     role_attr_flags: CREATEDB
   when: postgres_server
   sudo_user: postgres

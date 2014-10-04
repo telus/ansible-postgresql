@@ -14,8 +14,8 @@
   lineinfile:
     state: present
     dest: /etc/postgresql/9.3/main/pg_hba.conf
-    regexp: "^#* *host {{ database.name | default(project) }}"
-    line: "host {{ database.name | default(project) }} {{ database.username | default(project) }} 0.0.0.0/0 md5"
+    regexp: "^#* *host {{ database_name | default(project) }}"
+    line: "host {{ database_name | default(project) }} {{ database_username | default(project) }} 0.0.0.0/0 md5"
   notify: Reload Service | postgres
   tags:
     - networking
