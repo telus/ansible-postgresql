@@ -32,10 +32,3 @@
   tags:
     - pidfile
     - service
-
-- name: Confirm Monitoring | postgres
-  monit:
-    state: present
-    name: postgres
-  tags:
-    - monit
