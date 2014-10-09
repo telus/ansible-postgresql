@@ -10,7 +10,7 @@
     - networking
   when: postgres_accepts_external_connections
 
-- name: Configure | postgres | listen_address
+- name: Configure | postgres | pg_hba.conf
   lineinfile:
     state: present
     dest: /etc/postgresql/9.3/main/pg_hba.conf
