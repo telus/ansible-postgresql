@@ -14,7 +14,6 @@
   with_items:
     - postgresql
     - postgresql-server-dev-all
-    - python-pip
     - python-dev
   when: postgres_server
 
