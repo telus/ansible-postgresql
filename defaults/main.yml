@@ -8,3 +8,7 @@ postgres_runtime_root: "{{ runtime_root }}/postgres"
 postgres_pidfile_path: "{{ postgres_runtime_root }}/postgres.pid"
 
 postgres_accepts_external_connections: yes
+
+postgres_backup_enabled: no
+postgres_backup_path: /data/backup/postgres
+postgres_backup_frequency: daily
