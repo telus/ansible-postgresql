@@ -25,6 +25,17 @@
     - psycopg2
   when: postgres_server
 
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+  with_items:
+    - p7zip-full
+  when: postgres_backup_enabled
+  tags:
+    - p7zip
+    - backup
+
 - name: Create Database User
   postgresql_user:
     state: present
