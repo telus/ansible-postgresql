@@ -65,11 +65,3 @@
     role_attr_flags: CREATEDB
   when: postgres_server
   sudo_user: postgres
-
-- name: Service Stopped | postgres
-  service:
-    state: stopped
-    name: postgresql
-  when: postgres_server
-  tags:
-    - disruptive
