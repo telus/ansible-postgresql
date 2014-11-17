@@ -1,0 +1,5 @@
+---
+dependencies:
+  - role: meta/monitor
+    monitor_name: postgres
+    monitor_pidfile: "{{ postgres_pidfile_path }}"
