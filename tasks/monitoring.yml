@@ -11,17 +11,6 @@
     - runtime-data
     - postgres
 
-- name: Upload Config | monit | postgres
-  template:
-    src: etc/monit/conf.d/postgres
-    dest: /etc/monit/conf.d/postgres
-  notify: Reload Service | monit
-  tags:
-    - using-monit
-
-- name: Trigger All Callbacks
-  meta: flush_handlers
-
 - name: Configure | postgres | pidfile
   lineinfile:
     state: present
