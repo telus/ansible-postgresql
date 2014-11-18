@@ -2,4 +2,4 @@
 - include: install.yml
 - include: backup.yml
 - { include: monitoring.yml, when: postgres_server }
-- { include: config.yml, when: postgres_server }
+- { include: configure.yml,  when: postgres_server }
