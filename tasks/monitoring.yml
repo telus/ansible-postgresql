@@ -1,16 +1,4 @@
 ---
-- name: "Directory Exists | {{ postgres_runtime_root }}"
-  file:
-    state: directory
-    path: "{{ postgres_runtime_root }}"
-    owner: "{{ postgres_user }}"
-    group: wcadmin
-    mode: 0775
-  tags:
-    - directory-structure
-    - runtime-data
-    - postgres
-
 - name: Configure | postgres | pidfile
   lineinfile:
     state: present
