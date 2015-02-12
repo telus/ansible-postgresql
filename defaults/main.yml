@@ -4,11 +4,11 @@ postgres_server: no
 
 postgres_user: postgres
 
-postgres_runtime_root: "{{ runtime_root | default('/var/run') }}/postgres"
-postgres_pidfile_path: "{{ postgres_runtime_root }}/postgres.pid"
+postgres_runtime_root: "{{ runtime_root | default('/var/run') }}/postgresql"
+postgres_pidfile_path: "{{ postgres_runtime_root }}/postgresql.pid"
 
 postgres_accepts_external_connections: yes
 
 postgres_backup_enabled: no
-postgres_backup_path: /data/backup/postgres
+postgres_backup_path: /data/backup/postgresql
 postgres_backup_frequency: daily
