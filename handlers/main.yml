@@ -1,12 +1,7 @@
 ---
-- name: Reload Service | monit
-  command: monit reload
-  tags:
-    - using-monit
-
 - name: Reload Service | postgres
-  monit:
-    state: restarted
+  service:
+    state: reloaded
     name: postgres
   tags:
-    - using-monit
+    - disruptive
