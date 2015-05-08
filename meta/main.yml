@@ -1,4 +1,16 @@
 ---
 dependencies:
-  - role: meta/monitor
-    monitor_name: postgresql
+  - role: colstrom.apt-repository
+    repository_key: "0x7fcc7d46accc4cf8"
+    repository_url: "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"
+galaxy_info:
+  author: "Chris Olstrom"
+  company: "TELUS digital"
+  description: "PostgreSQL is a powerful, open source object-relational database system. It has more than 15 years of active development and a proven architecture that has earned it a strong reputation for reliability, data integrity, and correctness."
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+       - trusty
+  categories:
+    - system
