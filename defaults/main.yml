@@ -1,14 +1,14 @@
 ---
-postgres_client: no
-postgres_server: no
+postgresql_client: no
+postgresql_server: no
 
-postgres_user: postgres
+postgresql_user: postgres
 
-postgres_runtime_root: "{{ runtime_root | default('/var/run') }}/postgresql"
-postgres_pidfile_path: "{{ postgres_runtime_root }}/postgresql.pid"
+postgresql_runtime_root: "{{ runtime_root | default('/var/run') }}/postgresql"
+postgresql_pidfile_path: "{{ postgresql_runtime_root }}/postgresql.pid"
 
-postgres_accepts_external_connections: yes
+postgresql_accepts_external_connections: yes
 
-postgres_backup_enabled: no
-postgres_backup_path: /data/backup/postgresql
-postgres_backup_frequency: daily
+postgresql_backup_enabled: no
+postgresql_backup_path: /data/backup/postgresql
+postgresql_backup_frequency: daily

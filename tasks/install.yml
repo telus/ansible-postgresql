@@ -5,7 +5,7 @@
     pkg: "{{ item }}"
   with_items:
     - postgresql-client
-  when: postgres_client
+  when: postgresql_client
 
 - name: Install Packages | apt
   apt:
@@ -16,7 +16,7 @@
     - postgresql-contrib
     - postgresql-server-dev-all
     - python-dev
-  when: postgres_server
+  when: postgresql_server
 
 - name: Install Packages | pip
   pip:
@@ -24,7 +24,7 @@
     name: "{{ item }}"
   with_items:
     - psycopg2
-  when: postgres_server
+  when: postgresql_server
 
 - name: Install Packages | apt
   apt:
@@ -32,7 +32,7 @@
     pkg: "{{ item }}"
   with_items:
     - p7zip-full
-  when: postgres_backup_enabled
+  when: postgresql_backup_enabled
   tags:
     - p7zip
     - backup
@@ -45,7 +45,7 @@
     db: template1
     priv: CONNECT
 #    role_attr_flags: SUPERUSER
-  when: postgres_server
+  when: postgresql_server
   sudo_user: postgres
 
 - name: Create Database
@@ -53,7 +53,7 @@
     state: present
     name: "{{ database_name | default(project) }}"
     owner: "{{ database_username | default(project) }}"
-  when: postgres_server
+  when: postgresql_server
   sudo_user: postgres
 
 - name: Create Database User
@@ -64,5 +64,5 @@
     db: "{{ database_name | default(project) }}"
     priv: ALL
     role_attr_flags: CREATEDB
-  when: postgres_server
+  when: postgresql_server
   sudo_user: postgres

@@ -1,23 +1,23 @@
 ---
-- name: "Directory Exists | {{ postgres_backup_path }}"
+- name: "Directory Exists | {{ postgresql_backup_path }}"
   file:
     state: directory
-    path: "{{ postgres_backup_path }}"
-    owner: "{{ postgres_user }}"
+    path: "{{ postgresql_backup_path }}"
+    owner: "{{ postgresql_user }}"
     group: wcadmin
     mode: 0775
-  when: postgres_backup_enabled
+  when: postgresql_backup_enabled
   tags:
     - directory-structure
     - postgres
     - backup
 
-- name: Setup Automated Backups 
+- name: Setup Automated Backups
   cron:
     name: postgres-backup
-    special_time: "{{ postgres_backup_frequency }}"
-    job: "sudo -u postgres pg_dump {{ database_name | default(project) }} | 7z a -si {{ postgres_backup_path }}/backup-`date +%Y%m%d%H`.7z"
-  when: postgres_backup_enabled
+    special_time: "{{ postgresql_backup_frequency }}"
+    job: "sudo -u postgres pg_dump {{ database_name | default(project) }} | 7z a -si {{ postgresql_backup_path }}/backup-`date +%Y%m%d%H`.7z"
+  when: postgresql_backup_enabled
   tags:
     - postgres
     - backup
