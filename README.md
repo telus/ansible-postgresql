@@ -18,13 +18,13 @@ Tunables
 
 Dependencies
 ------------
-* [colstrom.apt-repository](https://github.com/colstrom/ansible-apt-repository/)
+* [telusdigital.apt-repository](https://github.com/telusdigital/ansible-apt-repository/)
 
 Example Playbook
 ----------------
     - hosts: servers
       roles:
-         - role: colstrom.postgresql
+         - role: telusdigital.postgresql
            postgresql_server: yes
            postgresql_backup_enabled: yes
            postgresql_backup_frequency: daily
