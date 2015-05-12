@@ -18,7 +18,7 @@
   cron:
     name: postgres-backup
     special_time: "{{ postgresql_backup_frequency }}"
-    job: "/usr/bin/pg_dump {{ database_name | default(project) }} | /usr/bin/7z a -si {{ postgresql_backup_path }}/backup-`/bin/date +\\%Y\\%m\\%d\\%H`.7z"
+    job: "pg_dump {{ database_name | default(project) }} | 7z a -si {{ postgresql_backup_path }}/backup-`date +\\%Y\\%m\\%d\\%H`.7z"
   when: postgresql_backup_enabled
   tags:
     - postgres
