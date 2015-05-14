@@ -13,10 +13,11 @@
     - backup
 
 - name: Setup Automated Backups
+  sudo_user: postgres
   cron:
     name: postgres-backup
     special_time: "{{ postgresql_backup_frequency }}"
-    job: "sudo -u postgres pg_dump {{ database_name | default(project) }} | 7z a -si {{ postgresql_backup_path }}/backup-`date +%Y%m%d%H`.7z"
+    job: "pg_dump {{ database_name | default(project) }} | 7z a -si {{ postgresql_backup_path }}/backup-`date +\\%Y\\%m\\%d\\%H`.7z"
   when: postgresql_backup_enabled
   tags:
     - postgres
