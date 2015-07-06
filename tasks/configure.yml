@@ -4,7 +4,7 @@
     state: directory
     path: "{{ postgresql_runtime_root }}"
     owner: "{{ postgresql_user }}"
-    group: wcadmin
+    group: staff
     mode: 0775
   tags:
     - directory-structure
