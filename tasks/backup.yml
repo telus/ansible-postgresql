@@ -4,7 +4,7 @@
     state: directory
     path: "{{ postgresql_backup_path }}"
     owner: "{{ postgresql_user }}"
-    group: wcadmin
+    group: staff
     mode: 0775
   when: postgresql_backup_enabled
   tags:
