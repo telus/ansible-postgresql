@@ -5,12 +5,12 @@ dependencies:
     repository_url: "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"
   - role: telusdigital.logrotate
     logrotate_name: postgresql
-  - role: telusdigital.fluentd
-    fluentd_config_name: postgresql
-    fluentd_sources:
-      - path: "{{ postgresql_log_path }}"
-        format: '^(?<date>[^ ]*)\s(?<time>\d+\:\d+\:\d+)\s\w{3}\s(?<parent_process_id>\[\d*\-\d*\])\s(?<server_name>[[a-z-@\]]*)\s?(?<severity>\p{Lu}+)\:\s*(?<comment>.*)'
-        tag: postgresql.general
+  # - role: telusdigital.fluentd
+  #   fluentd_config_name: postgresql
+  #   fluentd_sources:
+  #     - path: "{{ postgresql_log_path }}"
+  #       format: '^(?<date>[^ ]*)\s(?<time>\d+\:\d+\:\d+)\s\w{3}\s(?<parent_process_id>\[\d*\-\d*\])\s(?<server_name>[[a-z-@\]]*)\s?(?<severity>\p{Lu}+)\:\s*(?<comment>.*)'
+  #       tag: postgresql.general
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"
