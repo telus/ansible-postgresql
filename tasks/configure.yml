@@ -19,6 +19,8 @@
     line: "external_pid_file = '{{ postgresql_pidfile_path }}'"
   notify:
     - Restart Service Delay | postgres
+    - Stop Service | postgres
+    - Start Service | postgres
   tags:
     - pidfile
     - service
