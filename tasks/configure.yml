@@ -6,6 +6,7 @@
     owner: "{{ postgresql_user }}"
     group: staff
     mode: 0775
+  notify: Stop Service | postgres
   tags:
     - directory-structure
     - runtime-data
@@ -42,7 +43,9 @@
   with_items:
     - template1
     - "{{ database_name | default(project) }}"
-  notify: Reload Service | postgres
+  notify:
+    - Reload Service | postgres
+    - Start Service | postgres
   tags:
     - networking
   when: postgresql_accepts_external_connections
