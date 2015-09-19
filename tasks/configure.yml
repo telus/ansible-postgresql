@@ -6,7 +6,7 @@
     owner: "{{ postgresql_user }}"
     group: staff
     mode: 0775
-    notify: Stop Service | postgres
+  notify: Stop Service | postgres
   tags:
     - directory-structure
     - runtime-data
