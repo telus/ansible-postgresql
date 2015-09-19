@@ -18,7 +18,9 @@
     dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
     regexp: '^#*external_pid_file'
     line: "external_pid_file = '{{ postgresql_pidfile_path }}'"
-  notify: Reload Service | postgres
+  notify:
+    - Reload Service | postgres
+    - Start Service | postgres
   tags:
     - pidfile
     - service
@@ -43,9 +45,7 @@
   with_items:
     - template1
     - "{{ database_name | default(project) }}"
-  notify:
-    - Reload Service | postgres
-    - Start Service | postgres
+  notify: Reload Service | postgres
   tags:
     - networking
   when: postgresql_accepts_external_connections
