@@ -6,7 +6,6 @@
     owner: "{{ postgresql_user }}"
     group: staff
     mode: 0775
-  notify: Stop Service | postgres
   tags:
     - directory-structure
     - runtime-data
@@ -18,9 +17,7 @@
     dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
     regexp: '^#*external_pid_file'
     line: "external_pid_file = '{{ postgresql_pidfile_path }}'"
-  notify:
-    - Reload Service | postgres
-    - Stop Service | postgres
+  notify: Reload Service | postgres
   tags:
     - pidfile
     - service
