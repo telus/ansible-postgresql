@@ -18,7 +18,8 @@
     regexp: '^#*external_pid_file'
     line: "external_pid_file = '{{ postgresql_pidfile_path }}'"
   notify:
-    - Restart Service Delay | postgres
+    - Stop Service | postgres
+    - Start Service | postgres
     - Stop Service | postgres
     - Start Service | postgres
   tags:
