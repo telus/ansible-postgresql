@@ -56,7 +56,7 @@
     priv: CONNECT
 #    role_attr_flags: SUPERUSER
   when: postgresql_server
-  sudo_user: postgres
+  become_user: postgres
 
 - name: Create Database
   postgresql_db:
@@ -64,7 +64,7 @@
     name: "{{ database_name | default(project) }}"
     owner: "{{ database_username | default(project) }}"
   when: postgresql_server
-  sudo_user: postgres
+  become_user: postgres
 
 - name: Create Database User
   postgresql_user:
@@ -75,4 +75,4 @@
     priv: ALL
     role_attr_flags: CREATEDB
   when: postgresql_server
-  sudo_user: postgres
+  become_user: postgres

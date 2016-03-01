@@ -1,0 +1,10 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    # name of role to test
+    - role: ansible-postgresql
+      postgresql_client: yes
+      postgresql_server: yes

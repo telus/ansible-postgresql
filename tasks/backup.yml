@@ -13,7 +13,7 @@
     - backup
 
 - name: Setup Automated Backups
-  sudo_user: postgres
+  become_user: postgres
   cron:
     name: postgres-backup
     special_time: "{{ postgresql_backup_frequency }}"
