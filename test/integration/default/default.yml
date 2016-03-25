@@ -1,0 +1,11 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    # name of role to test
+    - role: ansible-postgresql
+      project: travis
+      environment_tier: development
+      domain: domain.com
