@@ -48,6 +48,8 @@
     - using-apt
 
 - name: Create Database User
+  become: true
+  become_user: postgres
   postgresql_user:
     state: present
     name: "{{ database_username | default(project) }}"
@@ -56,17 +58,19 @@
     priv: CONNECT
 #    role_attr_flags: SUPERUSER
   when: postgresql_server
-  sudo_user: postgres
 
 - name: Create Database
+  become: true
+  become_user: postgres
   postgresql_db:
     state: present
     name: "{{ database_name | default(project) }}"
     owner: "{{ database_username | default(project) }}"
   when: postgresql_server
-  sudo_user: postgres
 
 - name: Create Database User
+  become: true
+  become_user: postgres
   postgresql_user:
     state: present
     name: "{{ database_username | default(project) }}"
@@ -75,4 +79,3 @@
     priv: ALL
     role_attr_flags: CREATEDB
   when: postgresql_server
-  sudo_user: postgres
