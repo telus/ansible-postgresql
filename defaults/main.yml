@@ -15,3 +15,5 @@ postgresql_accepts_external_connections: yes
 postgresql_backup_enabled: no
 postgresql_backup_path: /data/backup/postgresql
 postgresql_backup_frequency: daily
+
+postgresql_max_connections: 100
