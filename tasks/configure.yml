@@ -22,6 +22,17 @@
     - pidfile
     - service
 
+- name: Configure | postgres | max_connections
+  lineinfile:
+    state: present
+    dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
+    regexp: '^#*max_connections'
+    line: "max_connections = {{ postgresql_max_connections }}"
+  notify: Reload Service | postgres
+  tags:
+    - max_connections
+    - service
+
 - name: Configure | postgres | listen_address
   lineinfile:
     state: present
