@@ -5,3 +5,19 @@
     name: postgresql
   tags:
     - disruptive
+
+- name: Restart Service Delay | postgres
+  pause:
+    minutes: 1
+
+- name: Stop Service | postgres
+  service:
+    name: postgresql
+    state: stopped
+  tags:
+    - disruptive
+
+- name: Start Service | postgres
+  service:
+    name: postgresql
+    state: started
