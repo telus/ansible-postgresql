@@ -5,14 +5,21 @@ dependencies:
     repository_url: "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"
   - role: telusdigital.logrotate
     logrotate_name: postgresql
+
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"
   description: "PostgreSQL is a powerful, open source object-relational database system. It has more than 15 years of active development and a proven architecture that has earned it a strong reputation for reliability, data integrity, and correctness."
+  issue_tracker_url: 'https://github.com/telusdigital/ansible-postgresql/issues'
   license: MIT
+  min_ansible_version: 1.9
   platforms:
     - name: Ubuntu
       versions:
-       - trusty
-  categories:
+      - lucid
+      - precise
+      - trusty
+      - utopic
+      - vivid
+  galaxy_tags:
     - database:sql
