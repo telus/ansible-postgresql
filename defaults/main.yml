@@ -3,6 +3,7 @@ postgresql_client: no
 postgresql_server: no
 
 postgresql_user: postgres
+postgresql_version: 10
 
 postgresql_runtime_root: "{{ runtime_root | default('/var/run') }}/postgresql"
 postgresql_pidfile_path: "{{ postgresql_runtime_root }}/postgresql.pid"
