@@ -54,6 +54,7 @@
     state: present
     name: "{{ database_username | default(project) }}"
     password: "{{ database_password | mandatory }}"
+    encrypted: yes
     db: template1
     priv: CONNECT
 #    role_attr_flags: SUPERUSER
