@@ -76,6 +76,7 @@
     state: present
     name: "{{ database_username | default(project) }}"
     password: "{{ database_password | mandatory }}"
+    encrypted: yes
     db: "{{ database_name | default(project) }}"
     priv: ALL
     role_attr_flags: CREATEDB
